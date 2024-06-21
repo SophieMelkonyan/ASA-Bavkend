@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Page</title>
+    <link rel="stylesheet" href="{% static 'css/premiumStyle.css' %}">
+    <link rel="icon" href="{% static 'img/logo1.png' %}" type="image/x-icon" sizes="64x64">
+    <style>
+        /* Include only the necessary Bootstrap alert styles */
+        .alert {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
+        .alert-danger {
+            color: #dbcccc;
+            background-color: rgb(188 122 125);
+            border-color: #bb8989;
+        }
+        .alert-primary {
+            color: #004085;
+            background-color: #cce5ff;
+            border-color: #b8daff;
+        }
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .fade {
+            opacity: 1;
+            transition: opacity 0.15s linear;
+        }
+        .show {
+            display: block;
+        }
+        .back-to-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            text-decoration: none;
+            color: #000;
+        }
+        .back-to-home:hover {
+            color: #333;
+        }
+        .back-to-home .arrow-icon {
+            display: inline-block;
+            margin-top:15px;
+            width: 70px;
+            height: 70px;
+            background-image: url('{% static 'img/arrow.png' %}');
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+   <a href="{% url 'user:profile'%}"  class="back-to-home">
+        <span class="arrow-icon"></span>
+
+    </a>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Premium Features</h1>
+            <p>Unlock exclusive content and features!</p>
+        </div>
+    </header>
+
+    <div class="bootstrap-alert">
+        {% if messages %}
+            <div class="alert-container">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} fade show" role="alert">
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <main class="container">
+        <section class="premium-content">
+            <div class="price-tag">$3000 դրամ</div>
+            <h2>Why Go Premium?</h2>
+
+            <ul>
+                <li><span class="done-icon">✔</span> Having unlimited Friends</li>
+                <li><span class="done-icon">✔</span> Seeing friends stores, giving likes</li>
+                <li><span class="done-icon">✔</span> Chatting and sharing information</li>
+            </ul>
+            <p>Subscribe now to enjoy all these benefits and more!</p>
+
+            <a href="{% url 'payment:create_checkout_session' pk=1 %}" class="btn">Subscribe Now</a>
+        </section>
+    </main>
+
+</body>
+</html>

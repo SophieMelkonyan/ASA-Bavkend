@@ -1,0 +1,47 @@
+{% extends "main_base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+<link rel="stylesheet" href="{% static 'css/create_post.css' %}">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+<body>
+
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+  <div class="content1">
+
+    <div class="image-box" style="height: 210px; width: 210px; margin-top: 4%; margin-left: 8%;">
+      <img id="image-preview" src="{{post.image.url}}" alt="">
+    </div>
+    <div class="details">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.title }}
+
+        <div style="margin-left:-54px">
+          <input type="file" id="id_image" name="image" class="custom-file-input" style="display: none;" onchange="previewImage(event)">
+          <label for="id_image" class="custom-file-label" style="background-color: #0F5132; padding: 10px; cursor: pointer; color: white;">Edit photo</label>
+
+        <button type="submit" style="background-color: #0F5132;margin-right:20px">Save changes</button>
+          </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    function previewImage(event) {
+      const reader = new FileReader();
+      reader.onload = function(){
+        const output = document.getElementById('image-preview');
+        output.src = reader.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+</body>
+</html>
+{% endblock %}

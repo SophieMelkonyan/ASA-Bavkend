@@ -1,0 +1,11 @@
+{% autoescape off %}
+
+
+Congratulations
+
+Please follow the link to complete your registration
+
+http://{{ domain }}{% url 'user:verify' pk=user.pk token=token %}
+
+{% endautoescape %}
+

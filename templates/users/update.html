@@ -1,0 +1,47 @@
+{% extends "main_base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+<link rel="stylesheet" href="{% static 'css/update.css' %}">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+
+    <div class="content1" >
+
+      <div class="image-box"  style="height: 210px; width: 210px; margin-top: 4%; margin-left: 8%;">
+       <img src="{{request.user.profile.image.url}}" alt="">
+      </div>
+      <div class="details">
+          <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+
+              {{form.username}}
+
+              {{form.description}}
+
+              <div style="margin-left: 23%; margin-top: 5%;">
+                <input type="file" id="id_image" name="image" class="custom-file-input" style="display: none;">
+                <label for="id_image" class="custom-file-label" style="background-color: #0F5132; padding: 10px; cursor: pointer; color: white;">Edit photo</label>
+            </div>
+
+
+
+          <button type="submit" style="margin-left: 40%; margin-top: -16%; background-color: #0F5132;">Save changes</button>
+          </form>
+      </div>
+    </div>
+
+
+
+</body>
+</html>
+
+
+
+{% endblock %}

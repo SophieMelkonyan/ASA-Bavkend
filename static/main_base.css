@@ -1,0 +1,290 @@
+body {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-family: 'Montserrat', sans-serif;
+}
+.search-box{
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  margin-left:200px;
+}
+.input-search{
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all .5s ease-in-out;
+  background-color: #0F5132;
+  padding-right: 40px;
+  color: #0F5132;
+}
+.input-search::placeholder{
+  color: rgba(9, 9, 9, 0.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.btn-search{
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #ffffff;
+  background-color:transparent;
+  pointer-events: painted;
+}
+.btn-search:focus ~ .input-search{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(41, 38, 38, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+.input-search:focus{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 196px;
+  background-color: #0F5132;
+  padding: 24px;
+    color:white;
+}
+.sidebar .logo img {
+  width: 215px;
+  height: 150px;
+  margin-left: -25%;
+  margin-top: -33%;
+    color:white;
+}
+.sidebar .navigation ul {
+  width: 500px;
+  list-style: none;
+  margin-top: -5px;
+  padding: -45px;
+}
+.sidebar .navigation ul li {
+  padding: 10px 0px;
+
+}
+.sidebar .navigation ul li a {
+  color:rgba(255, 255, 255, 0.8);;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+.sidebar .navigation ul li a:hover,
+.sidebar .navigation ul li a:active,
+.sidebar .navigation ul li a:focus {
+  color: #ffffff;
+}
+.sidebar .navigation ul li a:hover .fa,
+.sidebar .navigation ul li a:active .fa,
+.sidebar .navigation ul li a:focus .fa {
+  color: #ffffff;
+}
+.sidebar .navigation ul li .fa {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.sidebar .navigation ul li a:hover .fa:hover,
+.sidebar .navigation ul li a:hover .fa:active,
+.sidebar .navigation ul li a:hover .fa:focus {
+  color: #ffffff;
+}
+.sidebar .policies {
+  position: absolute;
+  bottom: 100px;
+}
+.sidebar .policies ul {
+  list-style: none;
+}
+.sidebar .policies ul li {
+  padding-bottom: 5px;
+}
+.sidebar .policies ul li a {
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 10px;
+}
+.sidebar .policies ul li a:hover,
+.sidebar .policies ul li a:active,
+.sidebar .policies ul li a:focus {
+  text-decoration: underline;
+}
+
+
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 14px 30px;
+  height: 80px;
+}
+.topbar .prev-next-buttons button {
+  color: #ffffff;
+  cursor: not-allowed;
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  font-size: 18px;
+  border: 0px;
+  background-color: #ffffff;
+  margin-right: 10px;
+}
+.topbar .navbar {
+  display: flex;
+  align-items: center;
+}
+.topbar .navbar ul {
+  list-style: none;
+}
+.topbar .navbar ul li {
+  display: inline-block;
+  margin: 1px 8px;
+  width: 70px;
+}
+.topbar .navbar ul li a {
+  color: #046027;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.topbar .navbar ul li a:hover,
+.topbar .navbar ul li a:active,
+.topbar .navbar ul li a:focus {
+  color: #022e11;
+  font-size: 15px;
+}
+.topbar .navbar ul li.divider {
+  color: #046027;
+  font-size: 26px;
+  margin: 0px 20px;
+  width: auto;
+}
+.topbar .navbar button {
+  background-color: #046027;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px 30px;
+  border: 0px;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.topbar .navbar button:hover,
+.topbar .navbar button:active,
+.topbar .navbar button:focus {
+  background-color: #046027;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body{
+line-height: 1.5;
+font-family: 'Poppins', sans-serif;
+}
+*{
+margin:0;
+padding:0;
+box-sizing: border-box;
+}
+.container{
+max-width: 1170px;
+margin:auto;
+
+}
+.row{
+display: flex;
+flex-wrap: wrap;
+}
+ul{
+list-style: none;
+}
+.footer{
+  margin-left:10%;
+background-color: #24262b;
+  padding: 70px 0;
+}
+.footer-col{
+  width: 22%;
+  padding: 0 15px;
+}
+.footer-col h4{
+ font-size: 18px;
+ color: #ffffff;
+ text-transform: capitalize;
+ margin-bottom: 35px;
+ font-weight: 500;
+ position: relative;
+}
+.footer-col h4::before{
+ content: '';
+ position: absolute;
+ left:0;
+ bottom: -10px;
+ background-color: #128020;
+ height: 2px;
+ box-sizing: border-box;
+ width: 50px;
+}
+.footer-col ul li:not(:last-child){
+ margin-bottom: 10px;
+}
+.footer-col ul li a{
+ font-size: 16px;
+ text-transform: capitalize;
+ color: #ffffff;
+ text-decoration: none;
+ font-weight: 300;
+ color: #bbbbbb;
+ display: block;
+ transition: all 0.3s ease;
+
+}
+.footer-col ul li a:hover{
+ color: #ffffff;
+ padding-left: 8px;
+}
+.footer-col .social-links a {
+ display: inline-block;
+ height: 40px;
+ width: 40px;
+ background-color: rgba(255, 255, 255, 0.2);
+ margin: 0 10px 10px 0;
+ text-align: center;
+ line-height: 40px;
+ border-radius: 50%;
+ color: #ffffff;
+ transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+ color: #24262b;
+ background-color: #ffffff;
+}
+
+.footer-col .social-links a i {
+ margin-top: 30%;
+}

@@ -1,0 +1,82 @@
+{% extends "main_base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<header>
+    <div class="container">
+        <div class="profile">
+            <div class="profile-image">
+                <img src="{{ profile.image.url }}" >
+            </div>
+            <div class="profile-user-settings">
+                <h1 class="profile-user-name">{{ profile.user.username }}</h1>
+
+    <button class="btn profile-edit-btn">
+    <a href="{% url 'user:update_profile' %}">Edit Profile</a>
+</button>
+                <button class="btn profile-edit-btn">
+    <a href="{% url 'user:delete_profile' %}">Delete Profile</a>
+</button>
+
+            </div>
+            <div class="profile-stats">
+                <ul>
+                    <li><i class="fas fa-photo-video"></i> <span class="profile-stat-count">{{ profile.post_counts }}</span> posts</li>
+                    <li><i class="fas fa-user-friends"></i> <span class="profile-stat-count">{{ profile.followers }}</span> friends</li>
+                    <li><i class="fas fa-heart"></i> <span class="profile-stat-count">{{ profile.story_counts }}</span> stores</li>
+                </ul>
+            </div>
+            <div class="profile-bio">
+                <p><span class="profile-real-name">{{ profile.user.username }}</span> {{ profile.description }}📷✈️🏕️</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- Stories Section -->
+        <div class="stories">
+            <h2>Stories</h2>
+            <div class="story-container">
+                {% for story in storys %}
+                <div class="story">
+                    <img src="{{story.image.url}}" alt="Story 1">
+                    <span>{{story.title}}</span>
+                </div>
+                {% endfor %}
+                <div class="story">
+                    <a href="{% url 'user:create_story'%}" ><img src="{% static 'img/image2.jpg' %}" alt="Story 2"></a>
+                    <span>Story 2</span>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="gallery">
+            {% for post in posts %}
+             {% if post.image.url != None%}
+            <div class="gallery-item" tabindex="0">
+
+                <img src="{{post.image.url}}" class="gallery-image" alt="">
+
+                <div class="gallery-item-info">
+                    <ul>
+                        <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> {{post.like_count}}</li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class="gallery-item" tabindex="0">
+                <a href="{% url 'user:create_post'%}" ><img src="{% static 'img/image2.jpg' %}" class="gallery-image" alt=""></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

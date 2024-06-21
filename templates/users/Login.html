@@ -1,0 +1,123 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Asa</title>
+    <link rel="stylesheet" href="{% static 'css/Login.css' %}">
+    <link rel="icon" href="{% static 'img/logo1.png' %}" type="image/png" sizes="192x192">
+<style>
+        /* Include only the necessary Bootstrap alert styles */
+        .alert {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
+        .alert-danger {
+           color: #dbcccc;
+    background-color: rgb(188 122 125);
+    border-color: #bb8989;
+        }
+        .alert-primary {
+            color: #004085;
+            background-color: #cce5ff;
+            border-color: #b8daff;
+        }
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .fade {
+            opacity: 1;
+            transition: opacity 0.15s linear;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<br>
+<br>
+<div class="bootstrap-alert">
+    {% if messages %}
+        <div class="alert-container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} fade show" role="alert">
+                    <strong>{{ message }}</strong>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+{% if form.errors %}
+<div class="alert-container">
+    {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+            <div class="alert alert-danger fade show" role="alert">
+                <strong>{{ field|title }}: {{ error }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endif %}
+
+</body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form method="POST" action="#">
+                {% csrf_token %}
+                <h1 style="margin-bottom: 1%;">Create Account</h1>
+                <span style="margin-bottom: 5%;">or use your email for registration</span>
+
+
+                {{ form.username }}
+
+                {{ form.email }}
+
+                {{ form.password1 }}
+
+                {{ form.password2 }}
+
+                <button type="submit" style="margin-top: 8%;">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form method="post" action="{% url 'user:login' %}">
+                {% csrf_token %}
+                <h1 style="margin-bottom: 3%;">Sign in</h1>
+                <span style="margin-bottom: 6%;">or use your account</span>
+
+                <input type="email" name="email" placeholder="Email" id="email">
+
+                <input type="password" name="password" placeholder="Password" id="password">
+                <a href="{% url 'reset_password' %}">Forgot your Password?</a>
+                <button >Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left" style="background-image: url('{% static 'img/img11.jpg' %}'); background-size: cover; filter: blur(1px);"></div>
+                <div class="overlay-panel overlay-left" style="margin-top: 5%;">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right" style="background-image: url('{% static 'img/img13.jpg' %}'); background-size: cover; filter: blur(0px);"></div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start your journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/Login.js' %}"></script>
+</body>
+</html>

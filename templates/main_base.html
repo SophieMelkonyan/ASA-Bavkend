@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="icon" href="{% static 'img/logo1.png' %}" type="image/x-icon" sizes="64x64">
+    <link rel="stylesheet" href="{% static 'main_base.css' %}">
+    <title>Asa</title>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="logo">
+
+                <img src="{% static 'img/logo.png' %}"
+                    alt="Logo" />
+
+        </div>
+        <div class="navigation">
+            <ul>
+
+                    <li>
+                        <a href="#">
+                        <span class="fa fa-home"></span>
+                        <span>Home</span>
+                        </a>
+                    </li>
+                <li>
+
+                    <a href="{% url 'user:profile'%}" >
+                        <span class="fa fas fa-book"></span>
+                        <span>Your Profile</span>
+                    </a>
+                </li>
+
+                <li>
+
+                    <a href="#" >
+                    <span class="fa fas fa-heart"></span>
+                    <span>Liked Songs</span>
+                    </a>
+
+                </li>
+
+                <li>
+                    <a href="{% url 'user:create_post'%}">
+                    <span class="fa fas fa-plus-square"></span>
+                    <span>Add Post</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="main-container">
+        <div class="topbar">
+            <form action="#" method="get" class="d-flex">
+            <div class="search-box">
+                <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+               <input type="text" name="query" class="input-search" placeholder="Type to Search...">
+            </div>
+            </form>
+
+            <div class="navbar">
+                <ul>
+                    <li>
+                        <a href="#">About us</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'payment:home'%}" style="">Premium</a>
+                    </li>
+                    <li>
+                        <a href="#"  style="">Support</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'user:register' %}"  >
+                        Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/23cecef777.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* Reset and basic styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header styles */
+.hero {
+    background: linear-gradient(to right, #a7efa7, #b0efd3, #88e0ca);
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 900;
+    background: linear-gradient(to right, #009688, #05bf96);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    color: grey;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Main content styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 1rem;
+}
+
+.premium-content {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    max-width: 600px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Added to position the price tag */
+}
+
+.premium-content:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+}
+
+.premium-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color:#6fcaa7;
+    font-weight: 700;
+}
+
+.premium-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.premium-content ul li {
+    color: #09723e;
+    font-weight: 5450;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.premium-content .btn {
+    display: inline-block;
+    background: linear-gradient(to right, #37d0ff, #55dfb1);
+    color: #fff;
+    text-decoration: none;
+    padding: 1.5rem 3rem;
+    border-radius: 40px;
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    transition: background 0.3s ease;
+}
+/* Price tag styles */
+.price-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff6b6b;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Done icon styles */
+.done-icon {
+    color: #33b583;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.premium-content .btn:hover {
+    background: linear-gradient(to right, #2579ff, #cc1dfd);
+}
